@@ -60,13 +60,14 @@
   background: #c8def2;
   border-radius: 10px 10px 10px 10px;
 }
+
 .SendMessage {
-  /* margin-left: 5%; */
   width: 74px;
-  height: 46px;
+  height: 40px;
   background: #29aef9;
   border-radius: 10px 0px 0px 10px;
 }
+
 .boxText {
   width: 230px;
   height: 40px;

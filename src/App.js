@@ -1,36 +1,43 @@
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// import socketClient  from "socket.io-client";
-// import chat from './chat.svg';
+import { Container } from "react-bootstrap"
 import './App.css';
-// import AllMessags from './chet/AllMassags';
-// import X from './X-icon.png'
-// import Home from "./chet/Home";
 import ChatRoom from "./chet/chetRoom";
-
-// const ChatRoom = require('../src/chet/chetRoom').ChatRoom;
-// const viewMessages = require('../src/chet/chetRoom').viewMessages;
-
-// const SERVER = "http://18.217.20.176:5000";
-// const SERVER = "http://localhost:8080";
-// var socket = socketClient (SERVER);
-//   socket.on('connection', () => {
-//     console.log(`I'm connected with the back-end`);
-// });
+import Navbar from './chet/Navbar';
+import Singup from "./chet/Signup";
+import LogIn from "./chet/logIn";
+import MyRoom from "./chet/MyRoom";
+import PrivateRoute from "./chet/PrivateRoute";
+import { AuthProvider } from "./contexts/AuthContext";
+import ForgotPassword from "./chet/ForgotPassword"
+import UpdateProfile from "./chet/UpdateProfile"
 
 function App() {
-    return (
-      <main>
-    <Router>
-      <Switch>
-        {/* <Route exact path="/" component={ChatRoom} /> */}
-        <Route exact path="/:roomId" component={ ChatRoom } />
-      </Switch>
-    </Router>
-        {/* <ChatRoom/>  */}
-      </main>
-    );
+  return (
+    <main> 
+      <Router>
+        {/* <Navbar /> */}
+        <AuthProvider>
+          <Switch>
+            <Container  > 
+              <Route exact path= "/room/:roomId" component={ ChatRoom }/>
+              <div className="d-flex align-items-center justify-content-center"style={{ minHeight: "100vh" }}>
+              <div className= "w-100" style={{maxWidth:"400px"}}>
+                <PrivateRoute exact path = "/MyRoom" component = {MyRoom} />   
+                <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                <Route  path= "/signUp" component = {Singup}/>
+                <Route  path= "/logIn" component = {LogIn} />
+                <Route  path= "/forgot-password" component = {ForgotPassword} />
+              </div>
+              </div>
+
+            </Container>
+          </Switch>
+        </AuthProvider>
+      </Router>
+    </main>
+  );
 };
 
 

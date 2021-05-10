@@ -1,0 +1,19 @@
+.box-sign-in {
+  /* background-color: rgb(223, 222, 222); */
+  width: 300px;
+  padding: 34px;
+  margin: 20px;
+}
+.boxTextSing {
+  width: 230px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+}
+.SendUser {
+  width: 230px;
+  height: 40px;
+  background: #29aef9;
+  border-radius: 10px 10px 10px 10px;
+  margin-top: 10px;
+}
